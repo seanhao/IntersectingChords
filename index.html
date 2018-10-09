@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>IntersectingChords</title>
+</head>
+<body>
+<div>
+    <img src="./circle.png">
+</div>
+<div>
+    <label>ａ：</label><input id="a" onfocus="this.value=''"></input>
+    <label>ｈ：</label><input id="h" onfocus="this.value=''"></input>
+    <button onclick="calculate()">Calculate</button>
+    
+    
+</div>
+<div>
+    <label>Radius：</label><input id="r" disabled="true"></input>
+    <label>Arc length：</label><input id="arc" disabled="true"></input>
+</div>
+
+    
+
+</body>
+<script>
+
+
+    function calculate(){
+        var a = parseFloat(document.getElementById("a").value);
+        var h = parseFloat(document.getElementById("h").value);
+        var r_result = document.getElementById("r");
+        var arc_result = document.getElementById("arc");
+        var r, arc_length, math_1, phi, math_2;
+
+        r =  (Math.pow(a, 2) + Math.pow(h, 2)) / (2*h);
+        math_1 = (Math.PI * (Math.pow(a, 2) + Math.pow(h, 2))) / h;
+        //arcsin's result is radian
+        phi = Math.asin((2 * a * h) / (Math.pow(a, 2) + Math.pow(h, 2)))
+        math_2 = phi / Math.PI;
+        arc_length = math_1 * math_2;
+        r_result.value = r;
+        arc_result.value = arc_length;
+    }
+    
+
+</script>
+</html>
